@@ -50,7 +50,7 @@ func (sdk *SDK) CreateUser(email, password string) (User, error) {
 func (sdk *SDK) ChangePassword(token, newPassword string) error {
 	url := URL + "/crud/changePassword/" + SERVICE_ID
 
-	payload := strings.NewReader(fmt.Sprintf(`{\n "resetPasswordToken" : "%s",\n "newPassword" : "%s"\n}`,
+	payload := strings.NewReader(fmt.Sprintf("{\n \"resetPasswordToken\" : \"%s\",\n \"newPassword\" : \"%s\"\n}",
 		token, newPassword))
 
 	req, err := http.NewRequest("POST", url, payload)
@@ -77,7 +77,7 @@ func (sdk *SDK) ChangePassword(token, newPassword string) error {
 func (sdk *SDK) AuthenticateUser(email, password string) (string, error) {
 	url := URL + "/authentication/authenticateUser/" + SERVICE_ID
 
-	payload := strings.NewReader(fmt.Sprintf(`{\n "email" : "%s",\n "password" : "%s"\n}`,
+	payload := strings.NewReader(fmt.Sprintf("{\n \"email\" : \"%s\",\n \"password\" : \"%s\"\n}",
 		email, password))
 
 	req, err := http.NewRequest("POST", url, payload)
@@ -113,7 +113,7 @@ func (sdk *SDK) AuthenticateUser(email, password string) (string, error) {
 func (sdk *SDK) ValidateJWT(token string) error {
 	url := URL + "/authentication/validateJWT/" + SERVICE_ID
 
-	payload := strings.NewReader(fmt.Sprintf(`{\n "jwt" : "%s",\n}`,
+	payload := strings.NewReader(fmt.Sprintf("{\n \"jwt\" : \"%s\",\n}",
 		token))
 
 	req, err := http.NewRequest("POST", url, payload)
@@ -140,7 +140,7 @@ func (sdk *SDK) ValidateJWT(token string) error {
 func (sdk *SDK) GenerateResetPasswordToken(email string) (string, error) {
 	url := URL + "/authentication/resetPassword/" + SERVICE_ID
 
-	payload := strings.NewReader(fmt.Sprintf(`{\n "email" : "%s"}`,
+	payload := strings.NewReader(fmt.Sprintf("{\n \"email\" : \"%s\"}",
 		email))
 
 	req, err := http.NewRequest("POST", url, payload)
