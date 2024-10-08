@@ -99,7 +99,7 @@ func (sdk *SDK) AuthenticateUser(email, password string) (string, error) {
 		return "", fmt.Errorf("failed")
 	}
 
-	var reponse Token
+	var reponse string
 
 	err = unmarshalbodytostruct(&res.Body, &reponse)
 	if err != nil {
@@ -107,7 +107,7 @@ func (sdk *SDK) AuthenticateUser(email, password string) (string, error) {
 		return "", err
 	}
 
-	return reponse.Token, nil
+	return reponse, nil
 }
 
 func (sdk *SDK) ValidateJWT(token string) error {
