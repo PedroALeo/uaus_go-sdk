@@ -1,4 +1,4 @@
-package main
+package uausgosdk
 
 type User struct {
 	Id       string `json:"id"`
