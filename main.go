@@ -113,7 +113,7 @@ func (sdk *SDK) AuthenticateUser(email, password string) (string, error) {
 func (sdk *SDK) ValidateJWT(token string) error {
 	url := URL + "/authentication/validateJWT/" + SERVICE_ID
 
-	payload := strings.NewReader(fmt.Sprintf("{\n \"jwt\" : \"%s\",\n}",
+	payload := strings.NewReader(fmt.Sprintf("{\n \"jwt\" : \"%s\"\n}",
 		token))
 
 	req, err := http.NewRequest("POST", url, payload)
