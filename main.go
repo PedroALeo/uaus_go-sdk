@@ -14,7 +14,7 @@ type SDK struct{}
 func (sdk *SDK) CreateUser(email, password string) (User, error) {
 	url := URL + "/crud/createUser/" + SERVICE_ID
 
-	payload := strings.NewReader(fmt.Sprintf(`{\n "email" : "%s",\n "password" : "%s"\n}`,
+	payload := strings.NewReader(fmt.Sprintf("{\n \"email\" : \"%s\",\n \"password\" : \"%s\"\n}",
 		email, password))
 
 	req, err := http.NewRequest("POST", url, payload)
