@@ -32,7 +32,7 @@ func (sdk *SDK) CreateUser(email, password string) (User, error) {
 	}
 	defer res.Body.Close()
 
-	if res.StatusCode != http.StatusOK {
+	if res.StatusCode != http.StatusCreated {
 		return User{}, fmt.Errorf("failed")
 	}
 
